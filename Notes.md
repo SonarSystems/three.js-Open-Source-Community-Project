@@ -4,7 +4,7 @@
 </ul>
 
 
-<!-- uses british dates [DD://MM://YYYY] -->
+<p><i>uses british dates [DD://MM://YYYY]</i></p>
 # Tasks Completed
 <ul>
   <li>[18://02://2016] Parse HTML file into decode method (but decode method will most likely get removed)</li>
