@@ -1,6 +1,6 @@
 # Tasks to do
 <ul>
-  <li>Auto update viewport on resize</li>
+  <li>Finish integrating MDL and Bootstrap then move onto sidebars</li>
   <li>
     Add toggleable sidebar for objects on the left
     <ol>
@@ -22,6 +22,7 @@
 # Tasks Completed
 <p><i>uses british dates [DD://MM://YYYY]</i></p>
 <ul>
+  <li>[19://02://2016] Auto update viewport on resize</li>
   <li>[19://02://2016] Abstract code into separate files (CSS/JS and anything else)</li>
   <li>[18://02://2016] Parse HTML file into decode method (but decode method will most likely get removed)</li>
 </ul>
