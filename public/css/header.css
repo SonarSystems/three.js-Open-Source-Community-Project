@@ -1,0 +1,22 @@
+.mdl-layout__header
+{
+    min-height: 0!important;
+}
+
+.mdl-layout__drawer-button
+{
+    margin: 0!important;
+    width: 29px!important;
+}
+
+.mdl-layout__header .mdl-layout__drawer-button
+{
+    background-color: #F7F7F7!important;
+    color: #000000!important;
+}
+
+.mdl-layout__header .mdl-layout__drawer-button:hover
+{
+    background-color: #000000!important;
+    color: #F7F7F7!important;
+}

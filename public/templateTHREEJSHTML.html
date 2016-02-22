@@ -41,17 +41,21 @@
 
             scene = new THREE.Scene( );
 
-            geometry = new THREE.CubeGeometry( 200, 400, 120 );
+            geometry = new THREE.CubeGeometry( 200, 200, 200 );
             material = new THREE.MeshBasicMaterial
             ( {
                 color: 0xFFFFFF,
                 wireframe: true,
-                wireframeLinewidth: 10
+                wireframeLinewidth: 3
             } );
 
             mesh = new THREE.Mesh( geometry, material );
             scene.add( mesh );
-
+        }
+        
+        var customCode = function( )
+        {
+            
         }
 
         var animate = function ( )
@@ -66,6 +70,7 @@
         }
 
         init( );
+        customCode( );
         animate( );
     </script>
 </body>

@@ -4,6 +4,7 @@
 		<title>three.js Open Source Editor</title>
 		<link rel="stylesheet" href="js/codemirror/codemirror.css">
         <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/header.css">
         
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -29,14 +30,32 @@
         <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
         
         <script src="js/index.js"></script>
+        <script src="js/Sidebar/objectSidebar.js"></script>
         
         
 	</head>
     
 	<body>
-		<div id="preview"></div>
-		<div id="editor"></div>
-		<div id="toolbar"></div>
-		<div id="popup"></div>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Object Viewer</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link sidebarObjectButton" href="#">Cube</a>
+                    <a class="mdl-navigation__link" href="">Sphere</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="page-content">
+                    <!-- Your content goes here -->
+                    <div id="preview"></div>
+                    <div id="editor"></div>
+                    <div id="toolbar"></div>
+                    <div id="popup"></div>
+                </div>
+            </main>
+        </div>
 	</body>
 </html>

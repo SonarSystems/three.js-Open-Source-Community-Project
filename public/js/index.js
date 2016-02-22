@@ -1,5 +1,7 @@
+var editor;
+
 $( document ).ready( function ( )
-{
+{    
     $.ajax(
     {
         url: "templateTHREEJSHTML.html",
@@ -64,7 +66,7 @@ $( document ).ready( function ( )
 
             var interval;
 
-            var editor = CodeMirror(document.getElementById('editor'), {
+            editor = CodeMirror(document.getElementById('editor'), {
 
                 value: documents[0].code,
                 mode: 'text/html',
@@ -508,7 +510,6 @@ $( document ).ready( function ( )
             };
 
             var toggle = function () {
-
                 if (element.style.display === '') {
 
                     buttonHide.textContent = 'show code';
@@ -530,6 +531,11 @@ $( document ).ready( function ( )
             };
 
             update();
+            
+            $( ".sidebarObjectButton" ).click( function( )
+            {
+                update();
+            } );       
         },
     });
 
