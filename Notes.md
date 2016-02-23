@@ -1,6 +1,7 @@
 # Tasks to do
 <ul>
   <li>When object is clicked, the object is added and code is updated</li>
+  <li>When downloading file, add .html extension instead of .txt and download any prerequisites like three.js</li>
   <li>Add toggleable sidebar for properties on the right</li>
   <li>
     If nothing is selected the properties should display global scene properties
