@@ -17,7 +17,6 @@
     <script src="js/three.js"></script>
     <script>
         var camera, scene, renderer;
-        var geometry, material, mesh;
         var renderer;
 
         var init = function ( )
@@ -40,31 +39,17 @@
 	    	} );
 
             scene = new THREE.Scene( );
-
-            geometry = new THREE.CubeGeometry( 200, 200, 200 );
-            material = new THREE.MeshBasicMaterial
-            ( {
-                color: 0xFFFFFF,
-                wireframe: true,
-                wireframeLinewidth: 3
-            } );
-
-            mesh = new THREE.Mesh( geometry, material );
-            scene.add( mesh );
         }
         
+        // do not touch this method at all
         var customCode = function( )
-        {
-            
-        }
+		{
+		/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}
 
         var animate = function ( )
         {
 
             requestAnimationFrame( animate );
-
-            mesh.rotation.x = Date.now( ) * 0.0005;
-            mesh.rotation.y = Date.now( ) * 0.001;
 
             renderer.render( scene, camera );
         }

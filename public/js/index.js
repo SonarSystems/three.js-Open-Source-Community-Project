@@ -534,6 +534,23 @@ $( document ).ready( function ( )
             
             $( ".sidebarObjectButton" ).click( function( )
             {
+                var code = editor.getValue(  );
+                var codeToAdd = "";
+                
+                $.ajax
+                ( {
+                    url: "codeSnippets/objects/cube.html",
+                    type: "GET",
+                    datattype: "html",
+                    success: function ( data )
+                    {
+                        var tempCodeToAdd = data + "\n/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}";
+                        codeToAdd = code.replace("/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}", tempCodeToAdd );
+                        editor.setValue( codeToAdd );
+                    }
+                } );
+                
+                
                 update();
             } );       
         },
