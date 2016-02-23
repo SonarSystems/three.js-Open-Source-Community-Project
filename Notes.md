@@ -7,7 +7,7 @@
     If nothing is selected the properties should display global scene properties
     <ol>
       <li>Dropdown for skybox</li>
-      <li>Drodpown for Anaglyphic 3D</li>
+      <li>Dropdown for Anaglyphic 3D</li>
     </ol>
   </li>
 </ul>
