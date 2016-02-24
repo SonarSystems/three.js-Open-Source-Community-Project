@@ -536,19 +536,33 @@ $( document ).ready( function ( )
             {
                 var code = editor.getValue(  );
                 var codeToAdd = "";
+                var objectName = $( "#ObjectNameTxtBox" ).val( ).trim( );
+                console.log( objectName );
                 
-                $.ajax
-                ( {
-                    url: "codeSnippets/objects/cube.html",
-                    type: "GET",
-                    datattype: "html",
-                    success: function ( data )
-                    {
-                        var tempCodeToAdd = data + "\n/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}";
-                        codeToAdd = code.replace("/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}", tempCodeToAdd );
-                        editor.setValue( codeToAdd );
-                    }
-                } );
+                var pattern = new RegExp( " " );
+                var isObjectNameValid = !pattern.test( objectName );
+                
+                if ( isObjectNameValid && objectName !== "" )
+                {
+                    // send object name to cube.html
+                    
+                    // record all objects added, inform the user if the object has been added previously
+                    
+                    $.ajax
+                    ( {
+                        url: "codeSnippets/objects/cube.html",
+                        type: "GET",
+                        dataType: "html",
+                        success: function ( data )
+                        {
+                            var tempCodeToAdd = data + "\n\n/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}";
+                            codeToAdd = code.replace("/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}", tempCodeToAdd );
+                            editor.setValue( codeToAdd );
+                        }
+                    } );
+                }
+                
+                
                 
                 
                 update();
