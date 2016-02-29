@@ -1,5 +1,3 @@
-var editor;
-
 $( document ).ready( function ( )
 {    
     $.ajax(
@@ -66,7 +64,7 @@ $( document ).ready( function ( )
 
             var interval;
 
-            editor = CodeMirror(document.getElementById('editor'), {
+            var editor = CodeMirror(document.getElementById('editor'), {
 
                 value: documents[0].code,
                 mode: 'text/html',
@@ -532,6 +530,18 @@ $( document ).ready( function ( )
 
             update();
             
+            // formats the 
+            function formatEditorCode( )
+            {
+                var totalLines = editor.lineCount( );
+                editor.autoFormatRange( { line: 0, ch: 0 }, { line: totalLines } );
+            }
+            
+            $( "#AutoFormatButton" ).click( function( )
+            {
+                formatEditorCode( );
+            } );        
+            
             $( ".sidebarObjectButton" ).click( function( )
             {
                 var code = editor.getValue(  );
@@ -557,19 +567,14 @@ $( document ).ready( function ( )
                         {
                             var tempCodeToAdd = data + "\n\n/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}";
                             codeToAdd = code.replace("/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}", tempCodeToAdd );
+                            codeToAdd = codeToAdd.replace( /template/g, objectName ); 
                             editor.setValue( codeToAdd );
                         }
                     } );
                 }
                 
-                
-                
-                
-                update();
+                update( );
             } );       
         },
     });
-
-
-
 });

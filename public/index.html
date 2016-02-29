@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         
 		<script src="js/codemirror/codemirror.js"></script>
+		<script src="js/codemirror/formatting.js"></script>
 		<script src="js/codemirror/mode/xml.js"></script>
 		<script src="js/codemirror/mode/javascript.js"></script>
 		<script src="js/codemirror/mode/css.js"></script>
@@ -29,10 +30,7 @@
 
         <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
         
-        <script src="js/index.js"></script>
-        <script src="js/Sidebar/objectSidebar.js"></script>
-        
-        
+        <script src="js/index.js"></script>        
 	</head>
     
 	<body>
@@ -52,6 +50,9 @@
                     <a class="mdl-navigation__link sidebarObjectButton" href="#">Cube</a>
                     <a class="mdl-navigation__link" href="">Sphere</a>
                 </nav>
+                
+                <!-- Colored raised button -->
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="AutoFormatButton">AutoFormat</button>
             </div>
             <main class="mdl-layout__content">
                 <div class="page-content">
