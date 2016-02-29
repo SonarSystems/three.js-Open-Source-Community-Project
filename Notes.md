@@ -1,6 +1,11 @@
 # Tasks to do
 <ul>
-  <li>When object is clicked, the object is added and code is updated</li>
+  <li>
+    When object is clicked, the object is added and code is updated
+    <ol>
+      <li>Keep track of all items added, inform the user if an item is attempted to be added with the same name</li>
+    </ol>
+  </li>
   <li>When downloading file, add .html extension instead of .txt and download any prerequisites like three.js</li>
   <li>
     If nothing is selected the properties should display global scene properties
