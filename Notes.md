@@ -1,8 +1,10 @@
 # Tasks to do
 <ul>
+  <li>Allow the object menu to be scrolled</li>
   <li>
     When object is clicked, the object is added and code is updated
     <ol>
+      <li>Inform the user of any errors with the name for the object (console like interface)</li>
       <li>Keep track of all items added, inform the user if an item is attempted to be added with the same name</li>
     </ol>
   </li>
