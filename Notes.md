@@ -4,7 +4,12 @@
   <li>
     When object is clicked, the object is added and code is updated
     <ol>
-      <li>Inform the user of any errors with the name for the object (console like interface)</li>
+      <li>
+        Inform the user of any errors with the name for the object (console like interface)
+        <ol>
+          <li>Check if the object name is valid in terms of valid variable names</li>
+        </ol>
+      </li>
       <li>Keep track of all items added, inform the user if an item is attempted to be added with the same name</li>
     </ol>
   </li>
