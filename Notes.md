@@ -1,6 +1,5 @@
 # Tasks to do
 <ul>
-  <li>Allow the object menu to be scrolled</li>
   <li>
     When object is clicked, the object is added and code is updated
     <ol>
@@ -27,6 +26,7 @@
 # Tasks Completed
 <p><i>uses british dates [DD://MM://YYYY]</i></p>
 <ul>
+  <li>[08://03://2016] Allow the object menu to be scrolled</li>
   <li>[22://02://2016] 
     Add toggleable sidebar for objects on the left
     <ol>
