@@ -217,6 +217,17 @@ $( document ).ready( function ( )
 
             }, false);
             menu.appendChild(buttonAbout);
+            
+            var buttonFormatCode = document.createElement('button');
+            buttonFormatCode.className = 'button';
+            buttonFormatCode.textContent = 'format code';
+            buttonFormatCode.addEventListener('click', function (event) {
+
+                formatEditorCode( );
+
+            }, false);
+            menu.appendChild( buttonFormatCode );
+
 
 
             // popup
