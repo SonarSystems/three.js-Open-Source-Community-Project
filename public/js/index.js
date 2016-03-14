@@ -131,6 +131,16 @@ $( document ).ready( function ( )
 
             }, false);
             toolbar.appendChild(buttonHide);
+            
+            var buttonConsole = document.createElement('button');
+            buttonConsole.className = 'button';
+            buttonConsole.textContent = 'show console';
+            buttonConsole.addEventListener('click', function (event) {
+
+                toggleConsole();
+
+            }, false);
+            toolbar.appendChild(buttonConsole);
 
             var buttonMenu = document.createElement('button');
             buttonMenu.className = 'button';
@@ -538,6 +548,22 @@ $( document ).ready( function ( )
                 }
 
             };
+            
+            var toggleConsole = function ( )
+            {
+                if ( $( "#Console" ).data( "visible" ) == "on" )
+                {
+                    buttonConsole.textContent = 'show console';
+                    $( "#Console" ).data( "visible", "off" )
+                    $( "#Console" ).toggle( );
+                }
+                else
+                {
+                    buttonConsole.textContent = 'hide console';
+                    $( "#Console" ).data( "visible", "on" )
+                    $( "#Console" ).toggle( );
+                }
+            };
 
             update();
             
@@ -585,7 +611,20 @@ $( document ).ready( function ( )
                 }
                 
                 update( );
-            } );       
+            } );
+            
+            if ( $( "#Console" ).data( "visible" ) == "off" )
+            {
+                buttonConsole.textContent = 'show console';
+                $( "#Console" ).data( "visible", "off" )
+                $( "#Console" ).hide( );
+            }
+            else
+            {
+                buttonConsole.textContent = 'hide console';
+                $( "#Console" ).data( "visible", "on" )
+                $( "#Console" ).show( );
+            }
         },
     });
 });

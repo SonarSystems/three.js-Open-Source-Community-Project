@@ -135,3 +135,38 @@ h1
     bottom: 0!important;
     width: 100%!important;
 }
+
+#LeftSidebar
+{
+    background-color: #222;
+    border-right: none;
+}
+
+#LeftSidebarTitle
+{
+    color: #0c0;
+}
+
+#Console
+{
+    position: fixed;
+    display: none;
+    margin-bottom: 0;
+    padding: 7px;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    overflow-y: scroll!important;
+}
+
+#Console .panel-footer
+{
+    height: 100%;
+}
+
+.consoleStartArrows
+{
+    color: white;
+    text-decoration: underline;
+}
+

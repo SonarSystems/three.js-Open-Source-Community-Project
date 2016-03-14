@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="external/bootstrap/themes/hacker.css">
         
 		<script src="js/codemirror/codemirror.js"></script>
 		<script src="js/codemirror/formatting.js"></script>
@@ -38,8 +39,8 @@
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
             <header class="mdl-layout__header">
             </header>
-            <div class="mdl-layout__drawer">
-                <span class="mdl-layout-title">Object Viewer</span>
+            <div class="mdl-layout__drawer" id="LeftSidebar">
+                <span class="mdl-layout-title" id="LeftSidebarTitle">Object Viewer</span>
                 <nav class="mdl-navigation">
                     <div class="col-xs-12">
                         <div class="input-group">
@@ -75,6 +76,14 @@
                     <div id="editor"></div>
                     <div id="toolbar"></div>
                     <div id="popup"></div>
+                    
+                    <div class="panel panel-default navbar-fixed-bottom" id="Console" data-visible="off">
+                        <div class="panel-footer">
+                            <p><span class="consoleStartArrows">></span> <span class="text-danger">This is an error</span></p>
+                            <p><span class="consoleStartArrows">></span> <span class="text-warning">This is a warning</span></p>
+                            <p><span class="consoleStartArrows">></span> <span class="text-primary">This is normal text</span></p>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
