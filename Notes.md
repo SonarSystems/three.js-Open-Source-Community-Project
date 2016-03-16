@@ -26,6 +26,14 @@
 # Tasks Completed
 <p><i>uses british dates [DD://MM://YYYY]</i></p>
 <ul>
+  <li>
+    When object is clicked, the object is added and code is updated
+    <ol>
+      <li>
+        [16://03://2016] Inform the user of any errors with the name for the object (console like interface)
+      </li>
+    </ol>
+  </li>
   <li>[08://03://2016] Allow the object menu to be scrolled</li>
   <li>[22://02://2016] 
     Add toggleable sidebar for objects on the left
