@@ -5,7 +5,15 @@ $( document ).ready( function ( )
         url: "templateTHREEJSHTML.html",
         type: "GET",
         datattype: "html",
-        success: function (data) {
+        success: function (data)
+        {
+            var eLEVEL =
+            {
+                NORMAL : "primary", 
+                WARNING : "warning", 
+                DANGER : "danger"
+            };  
+            
             window.URL = window.URL || window.webkitURL;
 
             // deflate
@@ -564,6 +572,13 @@ $( document ).ready( function ( )
                     $( "#Console" ).toggle( );
                 }
             };
+            
+            function ShowConsole( )
+            {
+                buttonConsole.textContent = 'hide console';
+                $( "#Console" ).data( "visible", "on" )
+                $( "#Console" ).show( );
+            }
 
             update();
             
@@ -584,7 +599,6 @@ $( document ).ready( function ( )
                 var code = editor.getValue(  );
                 var codeToAdd = "";
                 var objectName = $( "#ObjectNameTxtBox" ).val( ).trim( );
-                console.log( objectName );
                 
                 var pattern = new RegExp( " " );
                 var isObjectNameValid = !pattern.test( objectName );
@@ -606,8 +620,14 @@ $( document ).ready( function ( )
                             codeToAdd = code.replace("/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}", tempCodeToAdd );
                             codeToAdd = codeToAdd.replace( /template/g, objectName ); 
                             editor.setValue( codeToAdd );
+                            
+                            OutputToConsole( "New object added with name <i>'" + objectName + "'</i>", eLEVEL.NORMAL );
                         }
                     } );
+                }
+                else
+                {
+                    OutputToConsole( "<i>'" + objectName + "'</i> is not a valid name for an object, please try again", eLEVEL.DANGER );
                 }
                 
                 update( );
@@ -624,6 +644,28 @@ $( document ).ready( function ( )
                 buttonConsole.textContent = 'hide console';
                 $( "#Console" ).data( "visible", "on" )
                 $( "#Console" ).show( );
+            }
+            
+            function OutputToConsole( outputString, level )
+            {
+                if ( true === $( "#ConsoleFooter" ).data( "isused" ) )
+                {
+                    $( "#ConsoleFooter" ).append( '<p><span class="consoleStartArrows">></span> <span class="text-' + level + '">' + outputString + '</span></p>' );
+                }
+                else
+                {
+                    $( "#ConsoleFooter" ).html( '<p><span class="consoleStartArrows">></span> <span class="text-' + level + '">' + outputString + '</span></p>' );
+                    
+                    $( "#ConsoleFooter" ).data( "isused", true );
+                }
+                
+                
+                $( "#Console" ).scrollTop( $( this ).height( ) );
+                
+                if ( eLEVEL.DANGER === level )
+                {
+                    ShowConsole( );
+                }
             }
         },
     });
