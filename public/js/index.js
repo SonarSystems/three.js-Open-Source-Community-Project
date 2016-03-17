@@ -1,5 +1,16 @@
 $( document ).ready( function ( )
-{    
+{
+    Array.prototype.contains = function(obj) {
+    var i = this.length;
+    while (i--) {
+        if (this[i] === obj) {
+            return true;
+        }
+    }
+    return false;
+}
+
+    
     $.ajax(
     {
         url: "templateTHREEJSHTML.html",
@@ -12,7 +23,9 @@ $( document ).ready( function ( )
                 NORMAL : "primary", 
                 WARNING : "warning", 
                 DANGER : "danger"
-            };  
+            };
+            
+            var modelsAdded = [];
             
             window.URL = window.URL || window.webkitURL;
 
@@ -603,31 +616,50 @@ $( document ).ready( function ( )
                 var pattern = new RegExp( " " );
                 var isObjectNameValid = !pattern.test( objectName );
                 
-                if ( isObjectNameValid && objectName !== "" )
+                var regEx = new RegExp("[a-zA-Z_]+([a-zA-Z0-9_]*)");
+                var regExResult = regEx.exec( objectName );
+                
+                if ( regExResult != null )
                 {
-                    // send object name to cube.html
-                    
-                    // record all objects added, inform the user if the object has been added previously
-                    
-                    $.ajax
-                    ( {
-                        url: "codeSnippets/objects/cube.html",
-                        type: "GET",
-                        dataType: "html",
-                        success: function ( data )
-                        {
-                            var tempCodeToAdd = data + "\n\n/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}";
-                            codeToAdd = code.replace("/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}", tempCodeToAdd );
-                            codeToAdd = codeToAdd.replace( /template/g, objectName ); 
-                            editor.setValue( codeToAdd );
-                            
-                            OutputToConsole( "New object added with name <i>'" + objectName + "'</i>", eLEVEL.NORMAL );
-                        }
-                    } );
+                    if ( regExResult[0] == objectName )
+                    {
+                        // send object name to cube.html
+
+                        // record all objects added, inform the user if the object has been added previously
+
+                        $.ajax
+                        ( {
+                            url: "codeSnippets/objects/cube.html",
+                            type: "GET",
+                            dataType: "html",
+                            success: function ( data )
+                            {
+                                var tempCodeToAdd = data + "\n\n/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}";
+                                codeToAdd = code.replace("/*DONOTREUSETHISCOMMENT_CUSTOMCODECOMMENT*/}", tempCodeToAdd );
+                                codeToAdd = codeToAdd.replace( /template/g, objectName ); 
+                                editor.setValue( codeToAdd );
+
+                                if ( modelsAdded.contains( objectName ) )
+                                {
+                                    OutputToConsole( "New object added with name <i>'" + objectName + "'</i>. But an object with the same name was added before, be careful.", eLEVEL.WARNING );
+                                }
+                                else
+                                {
+                                    OutputToConsole( "New object added with name <i>'" + objectName + "'</i>", eLEVEL.NORMAL );
+                                
+                                    modelsAdded.push( objectName );
+                                }
+                            }
+                        } );
+                    }
+                    else
+                    {
+                        OutputToConsole( "<i>'" + objectName + "'</i> is not a valid name for an object, please try again (make sure to use JavaScript variable naming rules)", eLEVEL.DANGER );
+                    }
                 }
                 else
                 {
-                    OutputToConsole( "<i>'" + objectName + "'</i> is not a valid name for an object, please try again", eLEVEL.DANGER );
+                    OutputToConsole( "<i>'" + objectName + "'</i> is not a valid name for an object, please try again (make sure to use JavaScript variable naming rules)", eLEVEL.DANGER );
                 }
                 
                 update( );
