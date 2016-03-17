@@ -26,7 +26,7 @@
       <li>
         [16://03://2016] Inform the user of any errors with the name for the object (console like interface)
         <ol>
-          <li>[17://03://2016]Check if the object name is valid in terms of valid variable names</li>
+          <li>[17://03://2016] Check if the object name is valid in terms of valid variable names</li>
         </ol>
       </li>
     </ol>
