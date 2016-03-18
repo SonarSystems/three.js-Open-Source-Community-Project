@@ -1,15 +1,19 @@
 $( document ).ready( function ( )
 {
-    Array.prototype.contains = function(obj) {
-    var i = this.length;
-    while (i--) {
-        if (this[i] === obj) {
-            return true;
+    Array.prototype.contains = function ( obj )
+    {
+        var i = this.length;
+        
+        while ( i-- )
+        {
+            if ( this[i] === obj )
+            {
+                return true;
+            }
         }
+        
+        return false;
     }
-    return false;
-}
-
     
     $.ajax(
     {
@@ -542,11 +546,10 @@ $( document ).ready( function ( )
                 buttonDownload.href = objectURL;
 
                 var date = new Date();
-                buttonDownload.download = documents[0].filename;
-
+                buttonDownload.download = "index.html";
+                
                 buttonSave.style.display = 'none';
-                buttonDownload.style.display = '';
-
+                buttonDownload.style.display = '';                
             };
 
             var toggle = function () {
