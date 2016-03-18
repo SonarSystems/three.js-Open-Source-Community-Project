@@ -1,6 +1,5 @@
 # Tasks to do
 <ul>
-  <li>When downloading file, add .html extension instead of .txt and download any prerequisites like three.js</li>
   <li>
     If nothing is selected the properties should display global scene properties
     <ol>
@@ -14,6 +13,7 @@
 # Tasks Completed
 <p><i>uses british dates [DD://MM://YYYY]</i></p>
 <ul>
+  <li>[18://03://2016] When downloading file, add .html extension instead of .txt</li>
   <li>
     When object is clicked, the object is added and code is updated
     <ol>
