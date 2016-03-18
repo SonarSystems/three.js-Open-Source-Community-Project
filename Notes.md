@@ -1,5 +1,8 @@
 # Tasks to do
 <ul>
+  <li>Controls aka Orbit controls</li>
+  <li>More object types</li>
+  <li>Lighting</li>
   <li>
     If nothing is selected the properties should display global scene properties
     <ol>
